@@ -49,7 +49,7 @@ true = casa fixa (não pode ser apagada)
 
 ## Demonstração
 
-
+<img src="sudoku-demonstracao.png"/>
 
 Casas com erro são destacadas com cores (requer terminal compatível).
 
