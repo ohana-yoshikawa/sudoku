@@ -37,7 +37,7 @@ javac -d bin src/**/*.java
 ### Executar o jogo
 Passe as casas fixas via argumento no seguinte formato:
 ```bash
-java -cp bin Main "0,0;5,true" "1,1;7,true"
+java -cp bin Master "0,0;5,true" "1,1;7,true"
 ```
 Onde:
 
