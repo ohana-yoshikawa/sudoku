@@ -1,5 +1,6 @@
 package model;
 
+import View.MensagemView;
 import model.verificadores.*;
 
 import java.util.*;
@@ -17,6 +18,7 @@ public class Partida {
                 new VerificadorBloco()
         );
         inserirCasasFixas(args);
+
     }
 
     public void inserirCasasFixas(String[] args) {
@@ -61,12 +63,13 @@ public class Partida {
     }
 
     public boolean verificarJogada(Jogada jogada) {
+        MensagemView mensagemView = new MensagemView();
         if (jogada.getTipoJogada() == TipoJogada.INSERIR) {
             if (tabuleiro.getBlocos(jogada.getBlocoIndex()).getCasa(jogada.getCasaIndex()).getValor() == 0) {
                 return true;
             } else {
                 System.out.println();
-                System.out.println("Esta casa já está ocupada! apague o valor antes de inserir um novo");
+                mensagemView.mostrar("Esta casa já está ocupada! apague o valor antes de inserir um novo");
                 System.out.println();
                 return false;
             }
@@ -76,10 +79,10 @@ public class Partida {
                 if (!tabuleiro.getBlocos(jogada.getBlocoIndex()).getCasa(jogada.getCasaIndex()).isFixa()) {
                     return true;
                 } else {
-                    System.out.println("\n Esta casa é fixa e não pode ser apagada!");
+                    mensagemView.mostrar("\n Esta casa é fixa e não pode ser apagada!");
                 }
             } else {
-                System.out.println("\n Esta casa já está vazia! selecione uma casa ocupada para apagar!");
+                mensagemView.mostrar("\n Esta casa já está vazia! selecione uma casa ocupada para apagar!");
                 return false;
             }
         } else {
