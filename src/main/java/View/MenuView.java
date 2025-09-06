@@ -6,7 +6,7 @@ import model.TipoJogada;
 
 import java.util.Scanner;
 
-public class Menu {
+public class MenuView {
 
     public static int mostrarMenu() {
         Scanner scanner = new Scanner(System.in);

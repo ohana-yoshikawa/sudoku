@@ -16,15 +16,10 @@ public class Partida {
                 new VerificadorColuna(),
                 new VerificadorBloco()
         );
-        verificaCasasFixas(args);
-        tabuleiro.mostra();
+        inserirCasasFixas(args);
     }
 
-    public void verificaCasasFixas(String[] args) {
-        //pegar os valores no args
-        //traduzir a linha e coluna. Queremos o bloco que a casa está e o número da casa dentro do bloco
-        //inserir o valor no bloco
-
+    public void inserirCasasFixas(String[] args) {
         String[] posicaoEvalor;
         String[] linhaEcoluna;
         String[] numeroEfixo;
@@ -47,26 +42,23 @@ public class Partida {
                 casaIndex = Tabuleiro.indiceCasaNoBloco(linha, coluna);
 
                 //inserir numero
-
                 int valor = Integer.parseInt(numeroEfixo[0]);
                 inserirValor(valor, blocoIndex, casaIndex);
             }
         }
     }
 
-    //insere valores fixos
+    //inseri valores fixos
     public void inserirValor(int valor, int blocoIndex, int casaIndex) {
        tabuleiro.getBlocos(blocoIndex).adicionaValorFixo(casaIndex, valor);
     }
 
-    //insere valores adicionados pelo usuário
+    //inseri valores adicionados pelo usuário
     public void inserirValor(Jogada jogada) {
         if (verificarJogada(jogada)) {
             tabuleiro.getBlocos(jogada.getBlocoIndex()).adicionaValor(jogada);
         }
     }
-
-
 
     public boolean verificarJogada(Jogada jogada) {
         if (jogada.getTipoJogada() == TipoJogada.INSERIR) {
@@ -112,10 +104,6 @@ public class Partida {
 
     }
 
-    public void mostrarTabuleiro() {
-        tabuleiro.mostra();
-    }
-
     public void limparCasasErradas() {
         for (int i = 0; i < 9; i++){
             for (int j = 0; j < 9; j++) {
@@ -144,6 +132,10 @@ public class Partida {
             }
         }
         return true;
+    }
+
+    public Tabuleiro getTabuleiro() {
+        return tabuleiro;
     }
 }
 

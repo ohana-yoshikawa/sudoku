@@ -12,54 +12,7 @@ public class Tabuleiro {
         this.matriz = criaMatrizTabuleiro();
     }
 
-    public static final String RESET = "\u001B[0m";
-    public static final String AZUL = "\u001B[34m"; // azul para valores fixos
-    public static final String ROXO = "\u001B[35m"; // branco para jogadas
-    public static final String BRANCO = "\u001B[37m";
-    public static final String VERMELHO = "\u001B[41m";
 
-
-    public  void mostra() {
-        int jinferior = 0;
-        int jsuperior = 3;
-        for (int l = 0; l < 3; l++) {
-            int kinferior = 0;
-            int ksuperior = 3;
-            for (int i = 0; i < 3; i++) {
-                for (int j = jinferior; j < jsuperior; j++) {
-                    for (int k = kinferior; k < ksuperior; k++) {
-
-                        exibeValor(blocos[j].getCasa(k));
-
-                        if (((k + 1) % 3 == 0) && ((j + 1) % 3 != 0)) {
-                            System.out.print("|");
-                        }
-                    }
-                }
-                System.out.println();
-                kinferior = kinferior + 3;
-                ksuperior = ksuperior + 3;
-            }
-            if (l != 2) {
-                System.out.println("---------+---------+---------");
-            }
-            jinferior = jinferior + 3;
-            jsuperior = jsuperior + 3;
-        }
-        System.out.println();
-    }
-
-    private void exibeValor(Casa casa) {
-        if (casa.getValor() == 0) {
-            System.out.print(" " + BRANCO + casa.getValor() + RESET + " ");
-        } else if (casa.isErrada()) {
-            System.out.print(" " + VERMELHO + casa.getValor() + RESET + " ");
-        } else if (casa.isFixa()) {
-            System.out.print(" " + AZUL + casa.getValor() + RESET + " ");
-        } else {
-            System.out.print(" " + ROXO +casa.getValor() + RESET + " ");
-        }
-    }
 
     private Casa[][] criaMatrizTabuleiro() {
         Casa[][] matriz = new Casa[9][9];
@@ -96,5 +49,6 @@ public class Tabuleiro {
     public Casa getMatriz(int i, int j) {
         return matriz[i][j];
     }
+
 
 }
