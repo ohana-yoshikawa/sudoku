@@ -38,10 +38,8 @@ public class Partida {
 
                 //traduzir para posição global
                 linhaEcoluna = posicaoEvalor[0].split(",");
-                //int coluna = Integer.parseInt(linhaEcoluna[0]);
-                //int linha = Integer.parseInt(linhaEcoluna[1]);
-                int linha = Integer.parseInt(linhaEcoluna[0]);
-                int coluna = Integer.parseInt(linhaEcoluna[1]);
+                int coluna = Integer.parseInt(linhaEcoluna[0]);
+                int linha = Integer.parseInt(linhaEcoluna[1]);
 
                 blocoIndex = Tabuleiro.indiceDoBloco(linha, coluna);
                 casaIndex = Tabuleiro.indiceCasaNoBloco(linha, coluna);
